@@ -1,0 +1,126 @@
+:root {
+    --black: #000000;
+    /* --dark: #150050; */
+    /* --medium: #3F0071; */
+    --dark: #230036;
+    --medium: #360053;
+    --light: #610094;
+    --sb-w: 4rem;
+    --backward: cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: var(--medium);
+    color: white;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--light);
+    filter: drop-shadow(0 0 10px var(--black));
+    width: var(--sb-w);
+    z-index: 5;
+}
+
+.sidebar-item {
+    padding: 0.9rem;
+    margin: 0.5rem 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--dark);
+    transition: border-radius 0.5s ease;
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.sidebar-item:hover {
+    border-radius:0.75rem;
+    filter: brightness(0.9);
+}
+
+.sidebar-item:active {
+    filter: brightness(1.1);
+}
+
+.content {
+    margin-left: var(--sb-w);
+}
+
+.page {
+    display: none;
+}
+
+.page.shown {
+    display: block;
+}
+
+.page.shown{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.page.shown img {
+    margin: 2.5%;
+    border-radius: .5rem;
+    width: 95%;
+    transform: rotate(10deg);
+    -webkit-clip-path: inset(0 0 0 0 round 0% 50%);
+    clip-path: inset(0 0 0 0 round 0% 50%);
+
+    cursor: pointer;
+    /* transition: clip-path 1s var(--backward), transform 2s var(--backgward); */
+    transition-property: -webkit-clip-path, clip-path, transform;
+    transition-duration: 0.75s;
+    transition-timing-function: var(--backward);
+    max-width: 500px;
+}
+
+.page.shown img:hover {
+    /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */
+    clip-path: inset(0 0 0 0 round 0);
+    -webkit-clip-path: inset(0 0 0 0 round 0);
+    transform: rotate(0);
+}
+
+.p5Canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}
+
+@media screen and (max-width: 450px) {
+    .sidebar {
+        width: 100vw;
+        height: var(--sb-w);
+        flex-direction: row;
+    }
+    .sidebar-item {
+        margin: 0 0.3rem;
+        flex-basis: center;
+    }
+    .content {
+        margin-left: 0;
+        margin-top: var(--sb-w);
+    }
+}
