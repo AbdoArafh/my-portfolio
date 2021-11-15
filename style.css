@@ -4,6 +4,7 @@
     --medium: #427fff;
     --light: #5e91ff;
     --sb-w: 4rem;
+    --um: 1rem;
     --backward: cubic-bezier(.68,-0.55,.27,1.55);
 }
 
@@ -54,6 +55,11 @@ body {
     filter: brightness(1.1);
 }
 
+.sidebar-item.bottom {
+    position: absolute;
+    bottom: 0;
+}
+
 .content {
     margin-left: var(--sb-w);
 }
@@ -74,7 +80,7 @@ body {
     text-align: center;
 }
 
-.page.shown img {
+.page.shown .project {
     margin: 2.5%;
     width: 95%;
     transform: rotate(10deg);
@@ -86,7 +92,7 @@ body {
     max-width: 500px;
 }
 
-.page.shown img:hover {
+.page.shown .project:hover {
     border-radius: 0.5rem;
     transform: rotate(0);
 }
@@ -101,6 +107,39 @@ body {
     mix-blend-mode: overlay;
     /* opacity: 0.2; */
     opacity: 0;
+}
+
+.profile {
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    margin: var(--um);
+}
+
+.profile .pic {
+    position: relative;
+    border-radius: 10%;
+    width: 130px;
+}
+
+.profile .txt {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.profile div {
+    margin: 0.5rem;
+}
+
+.profile .name {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.tasks {
+    margin: var(--um);
+    text-align: left;
 }
 
 @media screen and (max-width: 450px) {
