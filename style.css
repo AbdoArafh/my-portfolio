@@ -64,6 +64,8 @@ body {
 .sidebar-item.bottom {
     position: absolute;
     bottom: 0;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .content {
@@ -74,16 +76,16 @@ body {
     display: none;
 }
 
-.page.shown {
-    display: block;
-}
-
 .page.shown{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     text-align: center;
+}
+
+.page.shown h1 {
+    margin: 1rem 0 3rem 0;
 }
 
 .page.shown .project {
@@ -111,8 +113,7 @@ body {
     z-index: 10;
     pointer-events: none;
     mix-blend-mode: overlay;
-    /* opacity: 0.2; */
-    opacity: 0;
+    opacity: 0.05;
 }
 
 .profile {
@@ -142,22 +143,26 @@ body {
     font-weight: bold;
 }
 
-.tasks {
+.skills {
     margin: var(--um);
     text-align: left;
 }
 
-.tasks .list {
+.skills h1 {
+    margin: 1rem 0 !important;
+}
+
+.skills .list {
     display: flex;
     flex-direction: row;
 }
 
-.tasks .list ul {
+.skills .list ul {
     margin: 0 1rem;
     padding: 0;
 }
 
-.tasks .list li {
+.skills .list li {
     list-style: none;
     padding: 0.5rem;
     border-radius: 0.5rem;
@@ -170,7 +175,7 @@ body {
     width: calc(100vw - 4rem);
     height: 100px;
     background-color: var(--light);
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 4rem;
     display: flex;
@@ -191,8 +196,25 @@ body {
     border-radius: 0.75rem;
 }
 
-.contacts .social.linkedin img {
+.contacts .social img {
     width: 3rem;
+}
+
+.contacts .social.github {
+    background-color: var(--dark);
+    padding: 1rem;
+    border-radius: 50%;
+    margin: 0 1rem;
+    transition: border-radius 0.75s ease;
+    cursor: pointer;
+}
+
+.contacts .social.github:hover {
+    border-radius: 0.75rem;
+}
+
+.contacts .social.github img {
+    transform: translateY(5%);
 }
 
 .contacts .email {
@@ -215,7 +237,18 @@ body {
     font-weight: bold;
 }
 
-@media screen and (max-width: 450px) {
+.disclaimer a {
+    text-decoration: none;
+    font-style: italic;
+    color: white;
+    font-weight: normal;
+}
+
+.disclaimer a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 700px) {
     .sidebar {
         width: 100vw;
         height: var(--sb-w);
@@ -231,5 +264,45 @@ body {
     }
     .bottom {
         right: 0;
+    }
+    .contacts {
+        left: 0;
+        width: 100%;
+        height: 75px;
+    }
+    .contacts .social.linkedin {
+        padding: 0.3rem 0;
+        margin: 0.1rem;
+    }
+    .contacts .social.linkedin img {
+        width: 2rem;
+        height: 2rem;
+    }
+    .contacts .social.github {
+        width: 1.6rem;
+        margin: 0 0.2rem;
+        padding: 0.6rem;
+    }
+    .contacts .social.github img{
+        width: 1.6rem;
+    }
+    .contacts .email {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .cv .name{
+        font-size: 1.5rem;
+    }
+    .sidebar-item {
+        width: 1.25rem;
+        height: 1.25rem;
+        font-size: 1.25rem;
+        margin: 0 .1rem;
+    }
+    .sidebar .bottom {
+        top: 0;
+        transform: translateY(18%);
     }
 }
