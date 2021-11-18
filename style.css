@@ -19,6 +19,7 @@ body {
     background-color: var(--medium);
     color: white;
     font-family: Roboto, Arial, Helvetica, sans-serif;
+    overflow-y: hidden;
 }
 
 .sidebar {
