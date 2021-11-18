@@ -20,7 +20,7 @@ body {
     background-color: var(--medium);
     color: white;
     font-family: Roboto, Arial, Helvetica, sans-serif;
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .sidebar {
