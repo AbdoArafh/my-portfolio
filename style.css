@@ -82,6 +82,16 @@ body {
     justify-content: center;
     align-content: center;
     text-align: center;
+    animation: pop 0.125s ease-out;
+}
+
+@keyframes pop {
+    from {
+        scale: 0.1;
+    }
+    to {
+        scale: 1;
+    }
 }
 
 .page.shown h1 {
@@ -250,6 +260,8 @@ body {
 
 @media screen and (max-width: 700px) {
     .sidebar {
+        top: auto;
+        bottom: 0;
         width: 100vw;
         height: var(--sb-w);
         flex-direction: row;
@@ -260,7 +272,7 @@ body {
     }
     .content {
         margin-left: 0;
-        margin-top: var(--sb-w);
+        margin-bottom: var(--sb-w);
     }
     .bottom {
         right: 0;
@@ -268,6 +280,7 @@ body {
     .contacts {
         left: 0;
         width: 100%;
+        margin-bottom: var(--sb-w);
         height: 75px;
     }
     .contacts .social.linkedin {
