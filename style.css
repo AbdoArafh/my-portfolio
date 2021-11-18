@@ -107,7 +107,7 @@ body {
 
 .page.shown .project {
     margin: 2.5%;
-    width: 95%;
+    width: 85%;
     transform: rotate(10deg);
     border-radius: 50% 10% / 10%;
     cursor: pointer;
